@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('home'); });
+Route::get('/mapping', function () { return view('mapping'); });
+
+Route::post('/parser/upload', 'ParserController@validateFile');
+Route::post('/parser/map', 'ParserController@mapData');
