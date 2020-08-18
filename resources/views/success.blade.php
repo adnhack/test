@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Aaron Aceves CSV Upload test | Map Fields | Step 2</title>
+        <title>Aaron Aceves CSV Upload test | Success | Step 3</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -121,52 +121,12 @@
 
             <div class="content">
                 <div class="title m-b-md links">
-                    Map Fields | Step 2
+                    Success | Step 3
                 </div>
 
-                @if ($errors->any())
-                  <div class="alert alert-danger">
-                    <ul>
-                      @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                      @endforeach
-                    </ul>
-                  </div>
-                @endif
-
-                {{ Form::open(['url' => '/parser/map', 'action' => 'post']) }}
-
                   <div class="boxed">
-                    <h3 class="textleft">Map your CSV file fields to the Database</h3>
-                    <h4 class="textleft"><strong>{{ $data['counter'] }}</strong> Records found in your CSV file | <a href="/">Upload a different file</a></h4>
-                    <table>
-                      <tr>
-                        <th>CSV File Column</th>
-                        <th>Database Column</th>
-                      </tr>
-
-                      @if(empty($data))
-                      <tr>
-                        <th colspan="2" class="textcenter">No data found</th>
-                      </tr>
-                      @else
-
-                        @foreach($data['data'] as $key => $value)
-                          <tr>
-                            <th>{{ $value }}</th>
-                            <th>{{ array_key_exists($key, $data['columns']) ? Form::select($key, $data['columns'], $key) : Form::select($key, $data['columns'], 5) }} {{ Form::text('a'.$key, null, ['placeholder' => 'Alternate Text']) }}</th>
-                          </tr>
-                        @endforeach
-
-                        <tr>
-                          <th colspan="2" class="textcenter">{{ Form::submit("Map {$data['counter']} Records", ['class' => 'submitButton']) }} | <a href="/">Cancel and Return Home</a></th>
-                        </tr>
-
-                      @endif
-                    </table>
+                    <h3 class="textleft">Your records has been saved!</h3>
                   </div>
-
-                {{ Form::close() }}
 
                 <div class="title m-b-md textleft">
                     <a href="/">Return to Step 1</a>

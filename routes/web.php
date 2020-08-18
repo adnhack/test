@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { return view('home'); });
 Route::get('/mapping', function () { return view('mapping'); });
+Route::get('/success', function () { return view('success'); });
 
-Route::post('/parser/upload', 'ParserController@validateFile');
+Route::post('/parser/upload', 'ParserController@parseUpload');
 Route::post('/parser/map', 'ParserController@mapData');
